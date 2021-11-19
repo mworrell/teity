@@ -4,20 +4,25 @@
  {enabled, true},
 
  %% Hostname on which this site runs
- {hostname, "teity.local:8000"},
+ {hostname, "teity.local"},
 
  %% Aliases which should redirect to the primary hostname
- %%{hostalias, ["www.example.com", "example.com"]},
+ {hostalias, [
+    "teity.nl",
+    "www.teity.nl",
+    "teity.eu",
+    "www.teity.eu",
+
+    "teity.zotonic.com"
+  ]},
 
  %% PostgreSQL database connection
- {dbhost, "127.0.0.1"},
- {
-   dbport, 5432
- },
- {dbuser, "zotonic"},
- {dbpassword, "zotonic"},
- {dbdatabase, "zotonic"},
- {dbschema, "teity"},
+ % {dbhost, "127.0.0.1"},
+ % {dbport, 5432},
+ % {dbuser, "zotonic"},
+ % {dbpassword, "zotonic"},
+ % {dbdatabase, "zotonic"},
+ % {dbschema, "teity"},
 
  %% Depcache settings, maximum size in mbs
  {depcache_memory_max, 100},
@@ -33,25 +38,23 @@
  %% Page length
  {pagelen, 5},
 
-{install_modules, 
-  [
+ {install_modules, [
    mod_base,
-   mod_base_site,
+   mod_wires,
+   mod_mqtt,
+   mod_cron,
    mod_menu,
-   mod_oauth,
    mod_search,
-   mod_oembed,
    mod_atom_feed,
    mod_translation,
-   mod_signal,
    mod_logging,
 
    mod_seo,
-   mod_seo_google,
    mod_seo_sitemap,
 
    mod_authentication,
-   mod_acl_adminonly,
+   mod_content_groups,
+   mod_acl_user_groups,
 
    mod_admin,
    mod_admin_category,
@@ -59,15 +62,30 @@
    mod_admin_identity,
    mod_admin_modules,
    mod_admin_predicate,
+   mod_admin_statistics,
+
+   mod_editor_tinymce,
 
    mod_l10n,
    mod_geomap,
 
-   mod_comment,
+   mod_oauth2,
+   mod_email_status,
+   mod_ratelimit,
+   mod_ssl_letsencrypt,
+
+   mod_site_update,
+   mod_backup,
+
    mod_artwork,
    mod_bootstrap,
    mod_mailinglist,
-   mod_video_embed
 
+   mod_video,
+   mod_audio,
+   mod_image_edit,
+   mod_media_exif,
+   mod_oembed,
+   mod_video_embed
   ]}
 ].

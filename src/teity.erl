@@ -22,8 +22,6 @@
 -mod_description("Teity, web site for Lily Ching.").
 -mod_prio(10).
 
--include_lib("zotonic.hrl").
-
 
 %%====================================================================
 %% support functions go here
